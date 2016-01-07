@@ -1,0 +1,70 @@
+
+
+function coinSums (total) {
+
+    var coins, combinations, sum;
+
+
+
+    coins = [1,2,5,10,20,50,100,200];
+
+    combinations = 0;
+
+    sum = 0;
+
+    var sol = [];
+
+
+
+    var combinationCounter = function (sum) {
+
+
+
+        // Base case
+
+        if ( sum === total ) {
+
+            combinations++;
+
+            console.log(sol);
+
+            return;
+
+        }
+
+
+
+        // Terminal case
+
+        if ( sum > total ) {
+
+            sol = [];
+
+            return;
+
+        }
+
+
+
+        // Recursive case
+
+        for( var o = 0; o < coins.length; o++ ){
+
+            sol.push(coins[o]);
+
+            combinationCounter(sum + coins[o]);
+
+        }
+
+    };
+
+    combinationCounter(sum);
+
+    return combinations;
+
+}
+
+
+
+console.log(coinSums(5));
+
